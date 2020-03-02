@@ -1,5 +1,5 @@
 
-// This program illustrates detecting a single button press
+//This program illustrates detecting a single button press
 //Push button is active low
 //Pressing button turns on LED
 
@@ -43,7 +43,7 @@ int main(void){
 
 	
 	
-	while(1){//keep checking if the button is pressed 
+	while(1){	//keep checking if the button is pressed 
  
 	//Checks if Button 1 is pressed, if pressed D2 lights up	
 	if(((GPIO_PORTM_DATA_R&0b00000001)==0&&(GPIO_PORTE_DATA_R&0b00000001)==0)){
