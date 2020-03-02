@@ -5,7 +5,7 @@
 
 
 void PortL_Init(void){
-	//Use PortN onboard LED	
+	//Use PortL onboard LED	
 	SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R10;		// activate clock for Port L
 	while((SYSCTL_PRGPIO_R&SYSCTL_PRGPIO_R10) == 0){};	// allow time for clock to stabilize
 	GPIO_PORTL_DIR_R |= 0b00010000;        			// make PL0 out 
