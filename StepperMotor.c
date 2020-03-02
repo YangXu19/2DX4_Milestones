@@ -32,6 +32,7 @@ void Rotate_CW(void)
 	
 	while (count < 50)
 	{
+	GPIO_PORTN_DATA_R = 0b00000001; //turn on LED
 	GPIO_PORTK_DATA_R = 0b00001100;
 	SysTick_Wait10ms(delay);
 	GPIO_PORTK_DATA_R = 0b00000110;
@@ -53,6 +54,7 @@ void Rotate_CCW(void)
 	
 	while (count < 50)
 	{
+	GPIO_PORTN_DATA_R = 0b00000001; //turn off LED
 	GPIO_PORTK_DATA_R = 0b00001001;
 	SysTick_Wait10ms(delay);
 	GPIO_PORTK_DATA_R = 0b00000011;
