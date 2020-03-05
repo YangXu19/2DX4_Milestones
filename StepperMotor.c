@@ -10,7 +10,7 @@ void PortK_Init(void){
 	while((SYSCTL_PRGPIO_R&SYSCTL_PRGPIO_R9) == 0){};	  // allow time for clock to stabilize
 	GPIO_PORTK_DEN_R |= 0b00001111;
 	GPIO_PORTK_DIR_R |= 0b00001111;                           // make PK0,PK1,PK2,PK3 output  
-	GPIO_PORTK_DATA_R = 0b00000000;                             // setting state to zero to drive the row, one to disable 
+	GPIO_PORTK_DATA_R = 0b00000000;                           // setting state to zero to drive the row, one to disable 
 	return;
 
 }
@@ -32,6 +32,7 @@ void Rotate_CW(void)
 	
 	while (count < 50)
 	{
+	GPIO_PORTN_DATA_R = 0b00000001; //turn on LED
 	GPIO_PORTK_DATA_R = 0b00001100;
 	SysTick_Wait10ms(delay);
 	GPIO_PORTK_DATA_R = 0b00000110;
@@ -53,6 +54,7 @@ void Rotate_CCW(void)
 	
 	while (count < 50)
 	{
+	GPIO_PORTN_DATA_R = 0b00000001; //turn off LED
 	GPIO_PORTK_DATA_R = 0b00001001;
 	SysTick_Wait10ms(delay);
 	GPIO_PORTK_DATA_R = 0b00000011;
