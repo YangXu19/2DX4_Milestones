@@ -11,8 +11,8 @@
 
 //make port E output drive row
 void PortE0_Init(void){	
-	SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R4;		  						// activate the clock for Port E
-	while((SYSCTL_PRGPIO_R&SYSCTL_PRGPIO_R4) == 0){};	  			// allow time for clock to stabilize
+	SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R4;		  // activate the clock for Port E
+	while((SYSCTL_PRGPIO_R&SYSCTL_PRGPIO_R4) == 0){};	  // allow time for clock to stabilize
 	GPIO_PORTE_DEN_R= 0b00000001;
 	GPIO_PORTE_DIR_R |= 0b00000001;                           // make PE0 output  
 	GPIO_PORTE_DATA_R=0b00000000;                             // setting state to zero to drive the row, one to disable 
@@ -23,15 +23,15 @@ void PortE0_Init(void){
 void PortM0_Init(void){
 	SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R11;                 // activate the clock for Port M
 	while((SYSCTL_PRGPIO_R&SYSCTL_PRGPIO_R11) == 0){};        // allow time for clock to stabilize 
-	GPIO_PORTM_DIR_R |= 0b00000000;       			  						// make PM0 an input, PM0 is reading the column 
+	GPIO_PORTM_DIR_R |= 0b00000000;       			  // make PM0 an input, PM0 is reading the column 
   GPIO_PORTM_DEN_R |= 0b00000001;
 	return;
 }	
 	
 //port K0,K1,K2,K3 for stepper motor
 void PortK_Init(void){	
-	SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R9;		 						 // activate the clock for Port E
-	while((SYSCTL_PRGPIO_R&SYSCTL_PRGPIO_R9) == 0){};	  		 // allow time for clock to stabilize
+	SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R9;		 // activate the clock for Port E
+	while((SYSCTL_PRGPIO_R&SYSCTL_PRGPIO_R9) == 0){};	 // allow time for clock to stabilize
 	GPIO_PORTK_DEN_R |= 0b00001111;
 	GPIO_PORTK_DIR_R |= 0b00001111;                          // make PK0,PK1,PK2,PK3 output  
 	GPIO_PORTK_DATA_R = 0b00000000;                          // setting state to zero to drive the row, one to disable 
@@ -41,7 +41,7 @@ void PortK_Init(void){
 
 //Turns on F0 onboard LED
 void PortF0_Init(void){
-	SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R5;                 	//activate the clock for Port F0
+	SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R5;                 //activate the clock for Port F0
 	while((SYSCTL_PRGPIO_R&SYSCTL_PRGPIO_R5) == 0){};
 	GPIO_PORTF_DIR_R|=0b00000001;                             
 	GPIO_PORTF_DEN_R|=0b00000001;
@@ -107,7 +107,6 @@ int main(void){
 	while(1)
 	{
 		GPIO_PORTL_DATA_R = 0b00010000;
-		
  
 		//if button is pressed	then reset count to 0
 		if(((GPIO_PORTM_DATA_R&0b00000001)==0&&(GPIO_PORTE_DATA_R&0b00000001)==0))
@@ -125,7 +124,7 @@ int main(void){
 			//checks if count is 45 deg
 			if(count%64 == 0)
 			{
-				GPIO_PORTF_DATA_R = 0b00000001;					//blink onboard LED
+				GPIO_PORTF_DATA_R = 0b00000001;		//blink onboard LED
 				SysTick_Wait10ms(10*delay);
 				GPIO_PORTF_DATA_R = 0b00000000;
 			}
@@ -133,5 +132,4 @@ int main(void){
 		}
 		//exit loop and then check button press
 	}
-	
 }
