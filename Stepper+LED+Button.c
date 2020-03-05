@@ -23,7 +23,7 @@ void PortM0_Init(void){
 	SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R11;                 // activate the clock for Port M
 	while((SYSCTL_PRGPIO_R&SYSCTL_PRGPIO_R11) == 0){};        // allow time for clock to stabilize 
 	GPIO_PORTM_DIR_R |= 0b00000000;       			  // make PM0 an input, PM0 is reading the column 
-  GPIO_PORTM_DEN_R |= 0b00000001;
+  	GPIO_PORTM_DEN_R |= 0b00000001;
 	return;
 }	
 	
