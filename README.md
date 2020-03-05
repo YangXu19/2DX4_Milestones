@@ -1,4 +1,4 @@
-# 2DX4_Milestones
+# Milestones
 Project Milestones for Embedded Systems Project Course
 
 ## Project
