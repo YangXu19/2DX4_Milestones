@@ -1,4 +1,3 @@
-//Yang Xu xuy203 400186733
 //Bus clock speed = 48 MHz
 //Onboard LED (distance) = F0
 //External LED (displacement) = L4
