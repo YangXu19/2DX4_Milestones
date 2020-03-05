@@ -1,8 +1,5 @@
-# Milestones
-Project Milestones for Embedded Systems Project Course
-
-## Project
-Using a Texas Instruments MSP-EXP432E401Y, design an embedded spatial measurement device similar to a LIDAR using a time-of-flight and IMU sensor.
+# Project
+Project Milestones for Embedded Systems Project Course. Using a Texas Instruments MSP-EXP432E401Y, design an embedded spatial measurement device similar to a LIDAR using a time-of-flight and IMU sensor.
 
 ## Milestones
 - Establish working LED and push button program
